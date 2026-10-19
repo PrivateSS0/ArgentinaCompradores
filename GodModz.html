@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honda Civic EK AEM | Argentina</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #ff365d;
+    --orange: #ff784f;
+    --bg: #090a0f;
+    --panel: #13151e;
+    --text: #f5f5f7;
+    --muted: #a4a6b5;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top right, #32101d 0%, transparent 45%),
+        radial-gradient(ellipse at bottom left, #20101a 0%, transparent 40%),
+        var(--bg);
+    min-height: 100vh;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #dedee7;
+    margin-bottom: 25px;
+}
+
+.status {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 15px var(--red);
+}
+
+.card {
+    background: linear-gradient(145deg, #171923, #101117);
+    border: 1px solid #30303c;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px #0008;
+    animation: appear .7s ease;
+}
+
+.hero {
+    padding: 55px;
+}
+
+.tagline {
+    color: #ff7089;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--red);
+}
+
+.description {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.product {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff06;
+    border: 1px solid #ffffff13;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-name {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.product-type {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 7px;
+}
+
+.product-price {
+    font-size: 25px;
+    font-weight: 900;
+    color: #ff637b;
+    margin-top: 12px;
+    letter-spacing: -1px;
+}
+
+.product-price span {
+    font-size: 11px;
+    color: #a4a6b5;
+    letter-spacing: 1px;
+}
+
+.badge {
+    color: #ff9bac;
+    background: #ff365d15;
+    border: 1px solid #ff365d50;
+    border-radius: 30px;
+    padding: 9px 13px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.sections {
+    border-top: 1px solid #ffffff13;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.box {
+    background: #ffffff04;
+    border: 1px solid #ffffff13;
+    border-radius: 17px;
+    padding: 25px;
+    transition: .25s;
+}
+
+.box:hover {
+    border-color: #ff365d70;
+    transform: translateY(-3px);
+}
+
+.number {
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    background: #ff365d20;
+    color: #ff8298;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+h2 {
+    font-size: 19px;
+    margin: 17px 0 12px;
+}
+
+.box p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+strong {
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+}
+
+.primary {
+    color: white;
+    background: linear-gradient(100deg, var(--red), var(--orange));
+}
+
+.secondary {
+    color: white;
+    background: #ffffff09;
+    border: 1px solid #ffffff20;
+}
+
+.notice {
+    margin: 0 35px 35px;
+    padding: 17px;
+    border-left: 3px solid var(--orange);
+    border-radius: 0 10px 10px 0;
+    background: #ff784f0c;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.notice strong {
+    color: #ffb18d;
+}
+
+#copyStatus {
+    margin-top: 12px;
+    color: #ff9bac;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    color: #777b8b;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 22px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        margin: 15px auto;
+    }
+
+    .hero {
+        padding: 28px 23px;
+    }
+
+    .sections {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .notice {
+        margin: 0 20px 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="header">
+        <span class="status"></span>
+        COMPRA DIGITAL / ARGENTINA
+    </div>
+
+    <main class="card">
+
+        <section class="hero">
+            <div class="tagline">
+                Información para compradores internacionales
+            </div>
+
+            <h1>
+                Tu próximo<br>
+                <span>Honda Civic EK.</span>
+            </h1>
+
+            <p class="description">
+                El <strong>1999 Honda Civic Hatchback EK AEM</strong>
+                tiene un precio de <strong>US$ 1,50</strong>.
+                Si estás en Argentina y querés pagar mediante Mercado
+                Pago, contactá por Discord al usuario
+                <strong>god_father_modz</strong> para coordinar el pago.
+                Si estás en otro pais, realizá la compra
+                directamente desde la página de Ko-fi.
+            </p>
+
+            <div class="product">
+                <div>
+                    <div class="product-name">
+                        1999 Honda Civic Hatchback EK AEM
+                    </div>
+
+                    <div class="product-type">
+                        Producto digital · Publicación en ModLand
+                    </div>
+
+                    <div class="product-price">
+                        US$ 1,50 <span>USD</span>
+                    </div>
+                </div>
+
+                <div class="badge">
+                    COMPRA DIGITAL
+                </div>
+            </div>
+        </section>
+
+        <section class="sections">
+
+            <div class="box">
+                <span class="number">01</span>
+
+                <h2>Compradores de Argentina</h2>
+
+                <p>
+                    Para comprar desde Argentina utilizando
+                    <strong>Mercado Pago</strong>, contactá por Discord
+                    al usuario <strong>god_father_modz</strong>.
+                    Coordiná el pago y confirmá las condiciones antes
+                    de realizar la transferencia.
+                </p>
+
+                <div class="buttons">
+                    <button class="btn primary"
+                            onclick="copiarUsuario()">
+                        Copiar usuario ↗
+                    </button>
+
+                    <a class="btn secondary"
+                       href="https://discord.com/app"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Abrir Discord ↗
+                    </a>
+                </div>
+
+                <div id="copyStatus"></div>
+            </div>
+
+            <div class="box">
+                <span class="number">02</span>
+
+                <h2>Compradores de Estados Unidos</h2>
+
+                <p>
+                    Si estás en Estados Unidos, debés adquirir el
+                    producto directamente desde la página de
+                    <strong>Ko-fi</strong>. Accedé a ella mediante
+                    la publicación del auto en <strong>ModLand</strong>.
+                </p>
+
+                <div class="buttons">
+                    <a class="btn secondary"
+                       href="https://www.modland.net/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Ir a ModLand ↗
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="notice">
+            <strong>Importante:</strong>
+            El precio indicado es US$ 1,50. Antes de transferir dinero,
+            confirmá el precio final, qué incluye el archivo y cómo
+            se entrega. Los compradores de Argentina deben coordinar
+            el pago por Discord; los de Estados Unidos deben comprar
+            mediante Ko-fi.
+        </div>
+
+    </main>
+
+    <footer>
+        1999 Honda Civic Hatchback EK AEM<br>
+        Información para compradores de Argentina y Estados Unidos.<br>
+        Esta página no está afiliada oficialmente a Mercado Pago,
+        Discord, ModLand ni Ko-fi.
+    </footer>
+
+</div>
+
+<script>
+async function copiarUsuario() {
+    const usuario = "god_father_modz";
+    const estado = document.getElementById("copyStatus");
+
+    try {
+        await navigator.clipboard.writeText(usuario);
+        estado.textContent = "¡Usuario copiado! Buscalo en Discord.";
+    } catch (error) {
+        estado.textContent = "Copiá manualmente: " + usuario;
+    }
+}
+</script>
+
+</body>
+</html>
